@@ -4,6 +4,7 @@ public class Jugador {
     private String nombre;
     private int ID;
     private int nivelXP;
+    private String resultado;
     private int vida;
     private int ataque;
     private boolean esta_eliminado;
@@ -21,7 +22,9 @@ public class Jugador {
     public boolean getEsta_eliminado() {
         return esta_eliminado;
     }
-
+    public String getResultado(){
+        return resultado;
+    }
     void setNombre(String n){
         this.nombre = n;
     }
@@ -34,17 +37,8 @@ public class Jugador {
     void setEsta_eliminado(boolean e){
         this.esta_eliminado = e;
     }
-    public void IntroducirDatos(){
-        Scanner scanner = new Scanner(System.in);
-
-        String Nombre;
-        int ID, xp;
-        System.out.print("Introduce el nombre: ");
-        setNombre(scanner.next());
-        System.out.print("Introduce el ID: ");
-        ID = scanner.nextInt();
-        setID(ID);
-        xp = 0; // al inicio del juego es 0.
-
+    void setResultado(String r){
+        this.resultado = r;
     }
+
 }
