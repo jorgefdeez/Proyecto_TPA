@@ -30,7 +30,7 @@ public class main {
             lista_jugadores.add(J1);
 
         }
-
+    //dafghjhfs
         System.out.println("*******REGISTRO DE PARTIDA*******");
         for(int i = 0;i<lista_jugadores.size();i++){
             System.out.println("\nNombre: " + lista_jugadores.get(i).getNombre());
