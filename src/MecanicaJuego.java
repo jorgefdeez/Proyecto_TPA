@@ -11,17 +11,19 @@ public class MecanicaJuego extends Jugador {
     private boolean ataqueEspecialDisponible = true;
     private Random random = new Random();
 
+    Esbirro E1 = new Esbirro();
+    Gigante G1 = new Gigante();
+    Dragon D1 = new Dragon();
+    Jugador J = new Jugador();
     public void jugar() {
-        Esbirro E1 = new Esbirro();
-        Gigante G1 = new Gigante();
-        Dragon D1 = new Dragon();
-        Jugador J = new Jugador();
+
 
 
         while (!E1.getSe_ha_eliminado() && !G1.getSe_ha_eliminado() && !D1.getSe_ha_eliminado() && !J.getEsta_eliminado()) {
             //ESBIRRO
             int contE = 1;
             if (contE == 1) {
+                System.out.println("\nPRIMER NIVEL: ESBIRRO");
                 System.out.println("Salud del Esbirro: " + E1.getVidaTotal() + "(Vida: " + E1.getVida() + " y Defensa: " + E1.getDefensa() + ")");
                 contE++;
             }
@@ -101,7 +103,7 @@ public class MecanicaJuego extends Jugador {
             //GIGANTE
             int contG = 1;
             if (contG == 1) {
-                System.out.println("****NUEVO NIVEL GIGANTE****");
+                System.out.println("****SEGUNDO NIVEL: GIGANTE****");
                 System.out.println("Salud del Gigante: " + G1.getVidaTotal() + "(Vida: " + G1.getVida() + " y Defensa: " + G1.getDefensa() + ")");
                 contG++;
             }
@@ -203,7 +205,7 @@ public class MecanicaJuego extends Jugador {
             //DRAGON
             int contD = 1;
             if (contD == 1) {
-                System.out.println("****NUEVO NIVEL DRAGOn****");
+                System.out.println("****TERCER NIVEL: DRAGON****");
                 System.out.println("Salud del Dragon: " + D1.getVidaTotal() + "(Vida: " + D1.getVida() + " y Defensa: " + D1.getDefensa() + ")");
                 contD++;
             }
@@ -221,7 +223,7 @@ public class MecanicaJuego extends Jugador {
                 int eleccion_ataque_dragon= random.nextInt(2) + 1;
 
                 System.out.println("\nTu salud: " + saludJugador);
-                System.out.println("Vida total del Gigante: " + D1.getVidaTotal());
+                System.out.println("Vida total del Dragon: " + D1.getVidaTotal());
                 System.out.println("1. Ataque normal (20 de daño)");
                 System.out.println("2. Ataque especial (35 de daño y solo un uso)");
                 System.out.println("Elige tu acción:");
@@ -309,4 +311,17 @@ public class MecanicaJuego extends Jugador {
         }
 
     }
+    public String hasta_donde_llego_jugador() {
+        if (!E1.getSe_ha_eliminado()) {
+            return "No ha pasado del primer nivel...";
+        }
+        if (!G1.getSe_ha_eliminado()) {
+            return "No ha pasado del segundo nivel...";
+        }
+        if (!D1.getSe_ha_eliminado()) {
+            return "No ha pasado del tercer nivel...";
+        }
+        return "Ha ganado";
+    }
+
 }
