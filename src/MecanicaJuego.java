@@ -39,7 +39,7 @@ public class MecanicaJuego extends Jugador {
                 System.out.println("Vida total del Esbirro: " + E1.getVidaTotal());
                 System.out.println("1. Ataque normal (20 de daño)");
                 System.out.println("2. Ataque especial (35 de daño y solo un uso)");
-                System.out.println("Elige tu acción:");
+                System.out.print("Elige tu acción:");
 
                 int opcion = scanner.nextInt();
                 scanner.nextLine();
@@ -93,10 +93,10 @@ public class MecanicaJuego extends Jugador {
                 }
             }
             if (E1.getSe_ha_eliminado()) {
-                System.out.println("Has derrotado al esbirro!");
+                System.out.println("Has derrotado al esbirro!\n");
             }
             if (J.getEsta_eliminado()) {
-                System.out.println("El Esbirro te ha derrotado. Has perdido:(");
+                System.out.println("El Esbirro te ha derrotado. Has perdido:(\n");
                 break;  // Sal del juego cuando el jugador es derrotado
             }
 
@@ -123,7 +123,7 @@ public class MecanicaJuego extends Jugador {
                 System.out.println("Vida total del Gigante: " + G1.getVidaTotal());
                 System.out.println("1. Ataque normal (20 de daño)");
                 System.out.println("2. Ataque especial (35 de daño y solo un uso)");
-                System.out.println("Elige tu acción:");
+                System.out.print("Elige tu acción:");
 
                 int opcion = scanner.nextInt();
                 scanner.nextLine();
@@ -194,11 +194,11 @@ public class MecanicaJuego extends Jugador {
                 }
             }
             if (G1.getSe_ha_eliminado()) {
-                System.out.println("Has derrotado al Gigante!");
+                System.out.println("Has derrotado al Gigante!\n");
             }
 
             if (J.getEsta_eliminado()) {
-                System.out.println("El Gigante te ha derrotado. Has perdido:(");
+                System.out.println("El Gigante te ha derrotado. Has perdido:(\n");
                 break;  // Sal del juego cuando el jugador es derrotado
             }
 
@@ -226,7 +226,7 @@ public class MecanicaJuego extends Jugador {
                 System.out.println("Vida total del Dragon: " + D1.getVidaTotal());
                 System.out.println("1. Ataque normal (20 de daño)");
                 System.out.println("2. Ataque especial (35 de daño y solo un uso)");
-                System.out.println("Elige tu acción:");
+                System.out.print("Elige tu acción:");
 
                 int opcion = scanner.nextInt();
                 scanner.nextLine();
@@ -300,12 +300,12 @@ public class MecanicaJuego extends Jugador {
             }
 
             if (J.getEsta_eliminado()) {
-                System.out.println("El Dragon te ha derrotado. Has perdido:(");
+                System.out.println("El Dragon te ha derrotado. Has perdido:(\n");
                 break;  // Sal del juego cuando el jugador es derrotado
             }
 
             if(E1.getSe_ha_eliminado() && G1.getSe_ha_eliminado() && D1.getSe_ha_eliminado()){
-                System.out.println("Enhorabuena has vencido a los tres enemigos, has ganado!!");
+                System.out.println("Enhorabuena has vencido a los tres enemigos, has ganado!!\n");
             }
 
         }
