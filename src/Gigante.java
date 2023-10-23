@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Gigante{
+public class Gigante extends Enemigo{
     private boolean se_ha_eliminado;
     private boolean curacion_disponible;
     private int ataque;
