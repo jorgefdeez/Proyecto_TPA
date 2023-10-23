@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Esbirro{
+public class Esbirro extends Enemigo{
     private boolean se_ha_eliminado;
     private int ataque;
     private int vida;
