@@ -21,7 +21,12 @@ public class main {
             System.out.print("Introdcue el ID(4 numeros enteros): ");
             ID = scanner.nextInt();
             J1.setID(ID);
-            System.out.println("Bienvenido al juego " + J1.getNombre() + "!");
+            J1.Seleccionar_heroe();
+            if(J1.getSeleccion_heroe() == "Valquiria"){
+                System.out.println("Bienvenido al juego " + J1.getNombre() + " eres una " + J1.getSeleccion_heroe() + "!");
+            }else{
+                System.out.println("Bienvenido al juego " + J1.getNombre() + "eres un " + J1.getSeleccion_heroe() + "!");
+            }
             MecanicaJuego juego = new MecanicaJuego();
             juego.jugar();
 
