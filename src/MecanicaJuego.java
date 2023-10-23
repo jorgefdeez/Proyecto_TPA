@@ -17,7 +17,21 @@ public class MecanicaJuego extends Jugador {
     Jugador J = new Jugador();
     public void jugar() {
 
-
+        /*
+        String heroe =J.getSeleccion_heroe();   //da null y deberia aparecer el heore seleccionado
+        switch (heroe){
+            case "Barbaro":
+                //codigo usando a Barbaro de personaje principal
+                break;
+            case "Mago":
+                //codigo usando a Mago de personaje principal
+                break;
+            case "Valquiria":
+                //codigo usando a Valquiria de personaje principal
+                break;
+            default: break;
+        }
+        */
 
         while (!E1.getSe_ha_eliminado() && !G1.getSe_ha_eliminado() && !D1.getSe_ha_eliminado() && !J.getEsta_eliminado()) {
             //ESBIRRO
