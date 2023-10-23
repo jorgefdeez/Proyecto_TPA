@@ -1,7 +1,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Dragon{
+public class Dragon extends Enemigo{
     private boolean se_ha_eliminado;
     private int ataque;
     private int Escupe_Fuego;
@@ -29,11 +29,9 @@ public class Dragon{
     public int getDefensa() {
         return defensa;
     }
-
     public int getVidaTotal() {
         return vidaTotal;
     }
-
     public int getEscupe_Fuego() {
         return Escupe_Fuego;
     }
