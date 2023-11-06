@@ -8,6 +8,7 @@ public class main {
         int op;
         int ID;
         ArrayList<Jugador> lista_jugadores = new ArrayList<Jugador>();
+        String heroe_seleccionado;
 
         System.out.print("Cuantos jugadores van a ser?: ");
         op = scanner.nextInt();
@@ -22,13 +23,14 @@ public class main {
             ID = scanner.nextInt();
             J1.setID(ID);
             J1.Seleccionar_heroe();
+            heroe_seleccionado = J1.getSeleccion_heroe();
             if(J1.getSeleccion_heroe() == "Valquiria"){
                 System.out.println("Bienvenido al juego " + J1.getNombre() + " eres una " + J1.getSeleccion_heroe() + "!");
             }else{
                 System.out.println("Bienvenido al juego " + J1.getNombre() + "eres un " + J1.getSeleccion_heroe() + "!");
             }
             MecanicaJuego juego = new MecanicaJuego();
-            juego.jugar();
+            juego.jugar(heroe_seleccionado);
 
             String resultado = juego.hasta_donde_llego_jugador();
             J1.setResultado(resultado);
