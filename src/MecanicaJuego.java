@@ -14,43 +14,45 @@ public class MecanicaJuego extends Jugador {
     Esbirro E1 = new Esbirro();
     Gigante G1 = new Gigante();
     Dragon D1 = new Dragon();
-    Jugador J = new Jugador();
-    public void jugar() {
+    //Jugador J = new Jugador();  //la funcion boolean esta_eliminado debe depende de las clases Barbaro, Mago y Valquiria.
+    public void jugar(String heroe_seleccionado) {
 
-        /*
-        String heroe =J.getSeleccion_heroe();   //da null y deberia aparecer el heore seleccionado
-        switch (heroe){
+        switch (heroe_seleccionado){
             case "Barbaro":
-                //codigo usando a Barbaro de personaje principal
+                Barbaro B1 = new Barbaro();
+                //implementar el codigo a partir del primer while cambiando las variables y metodos de jugador por las de barbaro
                 break;
             case "Mago":
-                //codigo usando a Mago de personaje principal
+                Mago M1 = new Mago();
+                //implementar el codigo a partir del primer while cambiando las variables y metodos de jugador por las de Mago
                 break;
             case "Valquiria":
-                //codigo usando a Valquiria de personaje principal
+                Valquiria V1 = new Valquiria();
+                //implementar el codigo a partir del primer while cambiando las variables y metodos de jugador por las de Valquiria
+
                 break;
             default: break;
         }
-        */
+
 
         while (!E1.getSe_ha_eliminado() && !G1.getSe_ha_eliminado() && !D1.getSe_ha_eliminado() && !J.getEsta_eliminado()) {
             //ESBIRRO
             int contE = 1;
             if (contE == 1) {
                 System.out.println("\nPRIMER NIVEL: ESBIRRO");
-                System.out.println("Salud del Esbirro: " + E1.getVidaTotal() + "(Vida: " + E1.getVida() + " y Defensa: " + E1.getDefensa() + ")");
+                System.out.println("Salud del Esbirro: " + E1.getVida_total() + "(Vida: " + E1.getVida() + " y Defensa: " + E1.getDefensa() + ")");
                 contE++;
             }
             saludJugador = 100;
-            saludEnemigo = E1.getVidaTotal();
+            saludEnemigo = E1.getVida_total();
             defensaEnemigo = E1.getDefensa();
-            saludTotalEnemigo = E1.getVidaTotal();
+            saludTotalEnemigo = E1.getVida_total();
             scanner = new Scanner(System.in);
             ataqueEnemigo = E1.getAtaque();
 
-            while (saludJugador > 0 && E1.getVidaTotal() > 0) {
+            while (saludJugador > 0 && E1.getVida_total() > 0) {
                 System.out.println("\nTu salud: " + saludJugador);
-                System.out.println("Vida total del Esbirro: " + E1.getVidaTotal());
+                System.out.println("Vida total del Esbirro: " + E1.getVida_total());
                 System.out.println("1. Ataque normal (20 de daño)");
                 System.out.println("2. Ataque especial (35 de daño y solo un uso)");
                 System.out.print("Elige tu acción:");
@@ -63,7 +65,7 @@ public class MecanicaJuego extends Jugador {
                     case 1: {
                         // Ataque normal
                         saludTotalEnemigo = saludTotalEnemigo - ataqueJugador;
-                        E1.setVidaTotal(saludTotalEnemigo);
+                        E1.setVida_total(saludTotalEnemigo);
                         System.out.println("Has atacado al esbirro y le has hecho " + ataqueJugador + " puntos de daño.");
                         break;
                     }
@@ -72,13 +74,13 @@ public class MecanicaJuego extends Jugador {
                         if (ataqueEspecialDisponible) {
                             int ataqueEspecialJugador = 35;
                             saludTotalEnemigo = saludTotalEnemigo - ataqueEspecialJugador;
-                            E1.setVidaTotal(saludTotalEnemigo);
+                            E1.setVida_total(saludTotalEnemigo);
                             System.out.println("Has realizado un ataque especial al esbirro y le has hecho " + ataqueEspecialJugador + " puntos de daño.");
                             ataqueEspecialDisponible = false;
                         } else {
                             System.out.println("Ya has usado el ataque especial, se efectuara un ataque normal.");
                             saludTotalEnemigo = saludTotalEnemigo - ataqueJugador;
-                            E1.setVidaTotal(saludTotalEnemigo);
+                            E1.setVida_total(saludTotalEnemigo);
                             System.out.println("Has atacado al esbirro y le has hecho " + ataqueJugador + " puntos de daño.");
                         }
                         break;
@@ -86,13 +88,13 @@ public class MecanicaJuego extends Jugador {
                     default: {
                         System.out.println("Opcion invalida...");
                         saludTotalEnemigo = saludTotalEnemigo - ataqueJugador;
-                        E1.setVidaTotal(saludTotalEnemigo);
+                        E1.setVida_total(saludTotalEnemigo);
                         System.out.println("Has atacado al esbirro y le has hecho " + ataqueJugador + " puntos de daño.");
                         break;
                     }
                 }
                 // verificar si el enemigo está derrotado
-                if (E1.getVidaTotal() <= 0) {
+                if (E1.getVida_total() <= 0) {
                     E1.setSe_ha_eliminado(true);    //lo marcamos como eliminado.
                     break;  //rompo el bucle para que no continue el juego cunado derrotas al enemigo.
                 }
@@ -220,24 +222,24 @@ public class MecanicaJuego extends Jugador {
             int contD = 1;
             if (contD == 1) {
                 System.out.println("****TERCER NIVEL: DRAGON****");
-                System.out.println("Salud del Dragon: " + D1.getVidaTotal() + "(Vida: " + D1.getVida() + " y Defensa: " + D1.getDefensa() + ")");
+                System.out.println("Salud del Dragon: " + D1.getVida_total() + "(Vida: " + D1.getVida() + " y Defensa: " + D1.getDefensa() + ")");
                 contD++;
             }
             saludJugador = 100;
-            saludEnemigo = D1.getVidaTotal();
+            saludEnemigo = D1.getVida_total();
             defensaEnemigo = D1.getDefensa();
-            saludTotalEnemigo = D1.getVidaTotal();
+            saludTotalEnemigo = D1.getVida_total();
             int EscupeFuego = D1.getEscupe_Fuego(); // ataque especial dragon
             scanner = new Scanner(System.in);
             ataqueEnemigo = D1.getAtaque();
             ataqueEspecialDisponible = true; //nueva partida con todos los recursos del heroe disponible otra vez.
 
 
-            while (saludJugador > 0 && D1.getVidaTotal() > 0) {
+            while (saludJugador > 0 && D1.getVida_total() > 0) {
                 int eleccion_ataque_dragon= random.nextInt(2) + 1;
 
                 System.out.println("\nTu salud: " + saludJugador);
-                System.out.println("Vida total del Dragon: " + D1.getVidaTotal());
+                System.out.println("Vida total del Dragon: " + D1.getVida_total());
                 System.out.println("1. Ataque normal (20 de daño)");
                 System.out.println("2. Ataque especial (35 de daño y solo un uso)");
                 System.out.print("Elige tu acción:");
@@ -250,7 +252,7 @@ public class MecanicaJuego extends Jugador {
                     case 1: {
                         // Ataque normal
                         saludTotalEnemigo = saludTotalEnemigo - ataqueJugador;
-                        D1.setVidaTotal(saludTotalEnemigo);
+                        D1.setVida_total(saludTotalEnemigo);
                         System.out.println("Has atacado al Dragon y le has hecho " + ataqueJugador + " puntos de daño.");
                         break;
                     }
@@ -259,13 +261,13 @@ public class MecanicaJuego extends Jugador {
                         if (ataqueEspecialDisponible) {
                             int ataqueEspecialJugador = 35;
                             saludTotalEnemigo = saludTotalEnemigo - ataqueEspecialJugador;
-                            D1.setVidaTotal(saludTotalEnemigo);
+                            D1.setVida_total(saludTotalEnemigo);
                             System.out.println("Has realizado un ataque especial al Dragon y le has hecho " + ataqueEspecialJugador + " puntos de daño.");
                             ataqueEspecialDisponible = false;
                         } else {
                             System.out.println("Ya has usado el ataque especial, se efectuara un ataque normal.");
                             saludTotalEnemigo = saludTotalEnemigo - ataqueJugador;
-                            D1.setVidaTotal(saludTotalEnemigo);
+                            D1.setVida-total(saludTotalEnemigo);
                             System.out.println("Has atacado al Dragon y le has hecho " + ataqueJugador + " puntos de daño.");
                         }
                         break;
@@ -273,13 +275,13 @@ public class MecanicaJuego extends Jugador {
                     default: {
                         System.out.println("Opcion invalida...");
                         saludTotalEnemigo = saludTotalEnemigo - ataqueJugador;
-                        D1.setVidaTotal(saludTotalEnemigo);
+                        D1.setVida_total(saludTotalEnemigo);
                         System.out.println("Has atacado al Dragon y le has hecho " + ataqueJugador + " puntos de daño.");
                         break;
                     }
                 }
                 // verificar si el enemigo está derrotado
-                if (D1.getVidaTotal() <= 0) {
+                if (D1.getVida_total() <= 0) {
                     D1.setSe_ha_eliminado(true);    //Lo marcamos como eliminado.
                     break;  //rompo el bucle para que no continue el juego cunado derrotas al enemigo.
                 }
