@@ -22,6 +22,12 @@ public class Gigante extends Enemigo{
         se_ha_eliminado =  false;
         curacion_disponible = true;
     }
+
+    public void atacar(int vida_heroe){
+        vida_heroe = vida_heroe-ataque;
+    }
+
+
     public int getVida() {
         return vida;
     }
