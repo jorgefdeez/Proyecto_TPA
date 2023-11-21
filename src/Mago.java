@@ -1,14 +1,15 @@
 import java.util.Scanner;
 import java.util.Random;
 
-public class Mago extends Jugador{
+public class Mago extends Jugador {
     private boolean se_ha_eliminado;
     private int ataque;
     private int FireBall;
     private int vida;
     private int magia;
     private int ataquetotal;
-    private Random random;
+    private boolean esta_disponible_vortice = true;
+    private Random random = new Random();
 
     public Mago(){
         Scanner scanner = new Scanner(System.in);
@@ -18,18 +19,44 @@ public class Mago extends Jugador{
         FireBall = ataquetotal*2;
         vida = 100;
     }
-    @Override
-    public void ataque_normal(int vida_enemigo){    //ataque basico.
-        vida_enemigo = vida_enemigo-ataque;
+    public int ataque_normal(int vida_enemigo){    //ataque basico.
+        int vida_enemigo_despues_ataque_normal;
+        vida_enemigo_despues_ataque_normal = vida_enemigo-ataquetotal;
+        return vida_enemigo_despues_ataque_normal;
     }
-    public void FireBall(int vida_enemigo){ //ataque especial.
-        vida_enemigo = vida_enemigo-FireBall;
+    public int FireBall(int vida_enemigo){ //ataque especial.
+        return vida_enemigo-FireBall;
     }
-    public void voritce_de_energia(int vida_enemigo){   //hablidad especial
-        int aux = random.nextInt(25)+15;
-        int danio = (vida_enemigo*aux)/100;
-        vida_enemigo = vida_enemigo - danio;    //le roba un porcentaje de la vida entre el 25 y 40% y se cura.
-        vida = vida + danio/2;  //se cura la mitad del daño ocasionado con el vortice.
+    public int voritce_de_energia(int vida_enemigo){   //hablidad especial
+        int danio = (vida_enemigo*variable_aleatoria())/100;
+        esta_disponible_vortice = false;
+        return danio;
+    }
+    void setEsta_disponible_vortice(boolean s){
+        esta_disponible_vortice = s;
+    }
+    public int variable_aleatoria(){
+        int aux = random.nextInt(11) + 35;
+        return aux;
+    };
+    public void setVida(int vida) {
+        this.vida = vida;
+    }
 
+    public int getVida() {
+        return vida;
+    }
+
+    public int getAtaque() {
+        return ataque;
+    }
+    public int getMagia(){
+        return magia;
+    }
+    public int getAtaquetotal(){
+        return ataquetotal;
+    }
+    public boolean getEsta_disponible_vortice() {
+        return esta_disponible_vortice;
     }
 }
