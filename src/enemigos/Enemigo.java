@@ -1,4 +1,6 @@
-public abstract class Enemigo {
+package enemigos;
+
+public class Enemigo {
     private int vida;
     private int ataque;
     private int defensa;
@@ -7,7 +9,7 @@ public abstract class Enemigo {
     public void setVida(int v){this.vida = v;}
     public void setAtaque(int a){this.ataque = a;}
     public void setDefensa(int d){this.defensa = d;}
-    public void setVida_total(int vida_total) {this.vida_total = vida_total;}
+    public void setVida_total(int v) {this.vida_total = v;}
 
     public int getAtaque() {return ataque;}
     public int getDefensa() {return defensa;}
