@@ -1,7 +1,11 @@
+package enemigos;
+
+import enemigos.Enemigo;
+
 import java.util.Random;
 import java.util.Scanner;
 
-public class Esbirro extends Enemigo{
+public class Esbirro extends Enemigo {
     private boolean se_ha_eliminado;
     private Random random = new Random();
     private  Scanner scanner = new Scanner(System.in);
@@ -19,6 +23,9 @@ public class Esbirro extends Enemigo{
         return se_ha_eliminado;
     }
 
+    public int getAtaque() {
+        return random.nextInt(10)+15;
+    }
     public void setSe_ha_eliminado(boolean S){
         this.se_ha_eliminado = S;
     }
