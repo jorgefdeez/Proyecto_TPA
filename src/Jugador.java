@@ -1,14 +1,19 @@
-import java.util.Scanner;
+import javax.swing.*;
+import java.awt.*;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Jugador {
     private String nombre;
     private int ID;
     private int nivelXP;
     private String resultado;
-    private String eleccion_heroe;
+    private String eleccionHeroe;
     private int vida;
     private int ataque;
-    private boolean esta_eliminado;
+    private boolean estaEliminado;
+
+    private static Set<Integer> idsUtilizados = new HashSet<>();
 
     public String getNombre() {
         return nombre;
@@ -23,58 +28,62 @@ public class Jugador {
     }
 
     public boolean getEsta_eliminado() {
-        return esta_eliminado;
+        return estaEliminado;
     }
 
     public String getResultado() {
         return resultado;
     }
 
-    public String getEleccion_heroe() {
-        return eleccion_heroe;
+    public void setResultado(String s){
+        resultado = s;
     }
 
-    public void setNombre(String n) {
-        this.nombre = n;
+    public String getEleccionHeroe() {
+        return eleccionHeroe;
     }
 
-    public void setID(int i) {
-        ID = i;
+    public void setEsta_eliminado(boolean s){
+        estaEliminado = s;
     }
 
-    public void setNivelXP(int xp) {
-        this.nivelXP = xp;
-    }
+    public void solicitarDatos() {
+        // Crear un panel para la entrada de datos
+        JPanel panel = new JPanel(new GridLayout(0, 2));
+        JTextField nombreField = new JTextField(10);
+        JTextField idField = new JTextField(10);
+        JComboBox<String> heroeComboBox = new JComboBox<>(new String[]{"Barbaro", "Mago", "Valquiria"});
 
-    public void setEsta_eliminado(boolean e) {
-        this.esta_eliminado = e;
-    }
+        panel.add(new JLabel("Nombre:"));
+        panel.add(nombreField);
+        panel.add(new JLabel("ID (4 números enteros):"));
+        panel.add(idField);
+        panel.add(new JLabel("Selecciona un héroe:"));
+        panel.add(heroeComboBox);
 
-    public void setResultado(String r) {
-        this.resultado = r;
-    }
+        // Mostrar el panel y recoger los datos
+        int result = JOptionPane.showConfirmDialog(null, panel, "Introduce los datos del jugador", JOptionPane.OK_CANCEL_OPTION);
+        if (result == JOptionPane.OK_OPTION) {
+            nombre = nombreField.getText();
 
-    public void Seleccionar_heroe() {
-        int eleccion;
-        Scanner scanner = new Scanner(System.in);
-        System.out.println("Barbaro = 1");
-        System.out.println("Mago = 2");
-        System.out.println("Valquiria = 3");
-        System.out.print("¿Qué héroe quieres utilizar?: ");
-        eleccion = scanner.nextInt();
-        switch (eleccion) {
-            case 1:
-                eleccion_heroe = "Barbaro";
-                break;
-            case 2:
-                eleccion_heroe = "Mago";
-                break;
-            case 3:
-                eleccion_heroe = "Valquiria";
-                break;
-            default:
-                System.out.println("Opción no válida. Seleccionando Barbaro por defecto.");
-                eleccion_heroe = "Barbaro";
+            // Validar que el ID tenga exactamente 4 dígitos
+            try {
+                int idInput = Integer.parseInt(idField.getText());
+                if (String.valueOf(idInput).length() != 4 || idsUtilizados.contains(idInput)) {
+                    throw new NumberFormatException();
+                }
+                ID = idInput;
+                idsUtilizados.add(ID);
+            } catch (NumberFormatException e) {
+                JOptionPane.showMessageDialog(null, "Introduce un ID válido de 4 y que no exista", "Error", JOptionPane.ERROR_MESSAGE);
+                // Llamada recursiva para permitir al usuario ingresar el ID correcto
+                solicitarDatos();
+            }
+
+            eleccionHeroe = (String) heroeComboBox.getSelectedItem();
+        } else {
+            JOptionPane.showMessageDialog(null, "La operación fue cancelada.", "Aviso", JOptionPane.INFORMATION_MESSAGE);
+            // Puedes lanzar una excepción o realizar otras acciones según tus necesidades
         }
     }
 }
