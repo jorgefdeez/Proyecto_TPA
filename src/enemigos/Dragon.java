@@ -1,7 +1,9 @@
+package enemigos;
+
 import java.util.Random;
 import java.util.Scanner;
 
-public class Dragon extends Enemigo{
+public class Dragon extends Enemigo {
     private boolean se_ha_eliminado;
     private int Escupe_Fuego;
     private boolean Escupe_Fuego_Disponible;
