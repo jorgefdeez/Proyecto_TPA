@@ -1,6 +1,6 @@
 import java.util.Scanner;
 
-public abstract class Jugador {
+public class Jugador {
     private String nombre;
     private int ID;
     private int nivelXP;
@@ -30,27 +30,27 @@ public abstract class Jugador {
         return resultado;
     }
 
-    public String getSeleccion_heroe() {
+    public String getEleccion_heroe() {
         return eleccion_heroe;
     }
 
-    void setNombre(String n) {
+    public void setNombre(String n) {
         this.nombre = n;
     }
 
-    void setID(int i) {
+    public void setID(int i) {
         ID = i;
     }
 
-    void setNivelXP(int xp) {
+    public void setNivelXP(int xp) {
         this.nivelXP = xp;
     }
 
-    void setEsta_eliminado(boolean e) {
+    public void setEsta_eliminado(boolean e) {
         this.esta_eliminado = e;
     }
 
-    void setResultado(String r) {
+    public void setResultado(String r) {
         this.resultado = r;
     }
 
@@ -60,7 +60,7 @@ public abstract class Jugador {
         System.out.println("Barbaro = 1");
         System.out.println("Mago = 2");
         System.out.println("Valquiria = 3");
-        System.out.print("Que heroe quieres utilizar?: ");
+        System.out.print("¿Qué héroe quieres utilizar?: ");
         eleccion = scanner.nextInt();
         switch (eleccion) {
             case 1:
@@ -71,8 +71,10 @@ public abstract class Jugador {
                 break;
             case 3:
                 eleccion_heroe = "Valquiria";
+                break;
+            default:
+                System.out.println("Opción no válida. Seleccionando Barbaro por defecto.");
+                eleccion_heroe = "Barbaro";
         }
     }
-    public abstract void ataque_normal(int vida_enemigo);
-
 }
