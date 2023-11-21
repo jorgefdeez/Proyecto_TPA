@@ -206,7 +206,7 @@ public class MecanicaJuego extends Jugador {
                                     System.out.println("Ya has usado enfurecimiento... Se efecturada un ataque normal.");
                                     saludTotalEnemigo = B1.ataque_normal(saludTotalEnemigo);
                                     G1.setVida_total(saludTotalEnemigo);
-                                    System.out.println("Has atacado al esbirro y le has hecho " + 17 + " puntos de daño.");
+                                    System.out.println("Has atacado al Gigante y le has hecho " + 17 + " puntos de daño.");
                                 }
                                 break;
                             }
@@ -214,7 +214,7 @@ public class MecanicaJuego extends Jugador {
                                 System.out.println("Opcion invalida...");
                                 saludTotalEnemigo = B1.ataque_normal(saludTotalEnemigo);
                                 G1.setVida_total(saludTotalEnemigo);
-                                System.out.println("Has atacado al esbirro y le has hecho " + 17 + " puntos de daño.");
+                                System.out.println("Has atacado al Gigante y le has hecho " + 17 + " puntos de daño.");
                                 break;
                             }
                         }
@@ -338,7 +338,7 @@ public class MecanicaJuego extends Jugador {
                                     System.out.println("Ya has usado enfurecimiento... Se efecturada un ataque normal.");
                                     saludTotalEnemigo = B1.ataque_normal(saludTotalEnemigo);
                                     D1.setVida_total(saludTotalEnemigo);
-                                    System.out.println("Has atacado al esbirro y le has hecho " + 17 + " puntos de daño.");
+                                    System.out.println("Has atacado al Dragon y le has hecho " + 17 + " puntos de daño.");
                                 }
                                 break;
                             }
@@ -346,7 +346,7 @@ public class MecanicaJuego extends Jugador {
                                 System.out.println("Opcion invalida...");
                                 saludTotalEnemigo = B1.ataque_normal(saludTotalEnemigo);
                                 D1.setVida_total(saludTotalEnemigo);
-                                System.out.println("Has atacado al esbirro y le has hecho " + 17 + " puntos de daño.");
+                                System.out.println("Has atacado al Dragon y le has hecho " + 17 + " puntos de daño.");
                                 break;
                             }
                         }
@@ -405,7 +405,7 @@ public class MecanicaJuego extends Jugador {
                     int contE = 1;
                     if (contE == 1) {
                         System.out.println("\nPRIMER NIVEL: ESBIRRO");
-                        System.out.println("Salud del enemigos.Esbirro: " + E1.getVida_total() + "(Vida: " + E1.getVida() + " y Defensa: " + E1.getDefensa() + ")");
+                        System.out.println("Salud del Esbirro: " + E1.getVida_total() + "(Vida: " + E1.getVida() + " y Defensa: " + E1.getDefensa() + ")");
                         contE++;
                     }
                     saludJugador = vida_inicial;
@@ -499,7 +499,7 @@ public class MecanicaJuego extends Jugador {
                     int contG = 1;
                     if (contG == 1) {
                         System.out.println("****SEGUNDO NIVEL: GIGANTE****");
-                        System.out.println("Salud del enemigos.Gigante: " + G1.getVida_total() + "(Vida: " + G1.getVida() + " y Defensa: " + G1.getDefensa() + ")");
+                        System.out.println("Salud del Gigante: " + G1.getVida_total() + "(Vida: " + G1.getVida() + " y Defensa: " + G1.getDefensa() + ")");
                         contG++;
                     }
                     saludJugador = vida_inicial;   //RESETEAMOS LA VIDA DEL JUGADOR AL EMPEZAR NUEVO NIVEL.
@@ -713,7 +713,7 @@ public class MecanicaJuego extends Jugador {
                                 } else {
                                     saludJugador = saludJugador - ataqueEnemigo;
                                     M1.setVida(saludJugador);
-                                    System.out.println("El enemigos.Dragon te ha atacado y te ha hecho " + D1.getAtaque() + " puntos de daño.");
+                                    System.out.println("El Dragon te ha atacado y te ha hecho " + D1.getAtaque() + " puntos de daño.");
                                 }
                                 break;
                             default:
@@ -1129,13 +1129,13 @@ public class MecanicaJuego extends Jugador {
     }
     public String hasta_donde_llego_jugador() {
         if (!E1.getSe_ha_eliminado()) {
-            return "No ha pasado del primer nivel...";
+            return "Perdió en el 1er nivel";
         }
         if (!G1.getSe_ha_eliminado()) {
-            return "No ha pasado del segundo nivel...";
+            return "Perdió en el 2nd nivel.";
         }
         if (!D1.getSe_ha_eliminado()) {
-            return "No ha pasado del tercer nivel...";
+            return "Perdió en el 3er nivel";
         }
         return "Ha ganado";
     }
